@@ -34,7 +34,7 @@ rule phylo:
     output:
         "/tree/{genome}_tree"
     shell:
-        fasttree -nt {input} > {output}
+        "fasttree -nt {input} > {output}"
         
 rule analysis:
     input:
@@ -43,4 +43,4 @@ rule analysis:
     output:
         "/hyphy_output/{genome}_aligned.FEL.json"
     shell:
-        hyphy fel --alignment {input.msa} --tree {input.tree}
+        "hyphy fel --alignment {input.msa} --tree {input.tree}"
