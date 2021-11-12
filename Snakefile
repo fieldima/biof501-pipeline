@@ -1,8 +1,8 @@
-rule all
+rule all:
     input:
         "/hyphy_output/{genome}_aligned.FEL.json"
 
-rule preprocess
+rule preprocess:
     input:
         "/Viral_Sequence_Data/{genome}.fasta"
     output:
@@ -11,7 +11,7 @@ rule preprocess
     shell:
         "hyphy /codon-msa/pre-msa.bf --input {input}"
         
-rule msa
+rule msa:
     input: 
         "/MSA/{genome}.fasta_protein.fas"
     output:
@@ -19,7 +19,7 @@ rule msa
     shell:
         "mafft --auto {input} > {output}"
         
-rule postprocess
+rule postprocess:
     input:
         a = "/MSA/{genome}_intermediate.msa"
         b = "/MSA/{genome}.fasta_nuc.fas"
@@ -28,7 +28,7 @@ rule postprocess
     shell:
         "hyphy /codon-msa/post-msa.bf --protein-msa {input.a} --nucleotide-sequences {input.b} --output {output}"
         
-rule phylo
+rule phylo:
     input:
         "/MSA/{genome}_aligned.msa"
     output:
@@ -36,7 +36,7 @@ rule phylo
     shell:
         fasttree -nt {input} > {output}
         
-rule analysis
+rule analysis:
     input:
         msa = "/MSA/{genome}_aligned.msa"
         tree = "/tree/{genome}_tree"
