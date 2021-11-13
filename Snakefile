@@ -6,7 +6,7 @@ rule preprocess:
     input:
         "/Viral_Sequence_Data/{genome}.fasta"
     output:
-        "/MSA/{genome}.fasta_nuc.fas"
+        "/MSA/{genome}.fasta_nuc.fas",
         "/MSA/{genome}.fasta_protein.fas"
     shell:
         "hyphy /codon-msa/pre-msa.bf --input {input}"
@@ -21,7 +21,7 @@ rule msa:
         
 rule postprocess:
     input:
-        a = "/MSA/{genome}_intermediate.msa"
+        a = "/MSA/{genome}_intermediate.msa",
         b = "/MSA/{genome}.fasta_nuc.fas"
     output: 
         "/MSA/{genome}_aligned.msa"
@@ -38,7 +38,7 @@ rule phylo:
         
 rule analysis:
     input:
-        msa = "/MSA/{genome}_aligned.msa"
+        msa = "/MSA/{genome}_aligned.msa",
         tree = "/tree/{genome}_tree"
     output:
         "/hyphy_output/{genome}_aligned.FEL.json"
