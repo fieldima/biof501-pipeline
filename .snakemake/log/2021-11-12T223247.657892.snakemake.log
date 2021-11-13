@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+analysis           1              1              1
+msa                1              1              1
+phylo              1              1              1
+postprocess        1              1              1
+preprocess         1              1              1
+total              6              1              1
+
+Select jobs to execute...
+
+[Fri Nov 12 22:32:47 2021]
+rule preprocess:
+    input: Viral_Sequence_Data/WNV_Genomes.fasta
+    output: MSA/WNV_Genomes.fasta_nuc.fas, MSA/WNV_Genomes.fasta_protein.fas
+    jobid: 4
+    wildcards: genome=WNV_Genomes
+    resources: tmpdir=/tmp
+
+[Fri Nov 12 22:32:47 2021]
+Error in rule preprocess:
+    jobid: 4
+    output: MSA/WNV_Genomes.fasta_nuc.fas, MSA/WNV_Genomes.fasta_protein.fas
+    shell:
+        hyphy /codon-msa/pre-msa.bf --input Viral_Sequence_Data/WNV_Genomes.fasta
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/fieldima/biof501-pipeline/.snakemake/log/2021-11-12T223247.657892.snakemake.log
