@@ -1,0 +1,3 @@
+Building DAG of jobs...
+MissingRuleException:
+No rule to produce WNV_Genomes_intermediate.msa (if you use input functions make sure that they don't raise unexpected exceptions).
