@@ -1,6 +1,6 @@
 rule all:
     input:
-        "/hyphy_output/WNV_Genomes_aligned.FEL.json"
+        "hyphy_output/WNV_Genomes_aligned.FEL.json"
 
 rule preprocess:
     input:

@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 11 of /home/fieldima/biof501-pipeline/Snakefile:
+Missing input files for rule preprocess:
+/Viral_Sequence_Data/WNV_Genomes.fasta
