@@ -9,7 +9,7 @@ rule preprocess:
         "MSA/{genome}.fasta_nuc.fas",
         "MSA/{genome}.fasta_protein.fas"
     shell:
-        "hyphy /codon-msa/pre-msa.bf --input {input}"
+        "hyphy codon-msa/pre-msa.bf --input {input}"
         
 rule msa:
     input: 
@@ -26,7 +26,7 @@ rule postprocess:
     output: 
         "MSA/{genome}_aligned.msa"
     shell:
-        "hyphy /codon-msa/post-msa.bf --protein-msa {input.a} --nucleotide-sequences {input.b} --output {output}"
+        "hyphy codon-msa/post-msa.bf --protein-msa {input.a} --nucleotide-sequences {input.b} --output {output}"
         
 rule phylo:
     input:
