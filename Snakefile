@@ -4,7 +4,7 @@ rule all:
 
 rule preprocess:
     input:
-        "/biof501-pipeline/Viral_Sequence_Data/{genome}.fasta"
+        "/home/fieldima/biof501-pipeline/Viral_Sequence_Data/{genome}.fasta"
     output:
         "/MSA/{genome}.fasta_nuc.fas",
         "/MSA/{genome}.fasta_protein.fas"
