@@ -1,3 +1,0 @@
-
-Error:There were no sequences that were in frame and had no stop codons in call to assert(filter.longest_seq_L>0, error_msg);
-There were no sequences that were in frame and had no stop codons in call to assert(filter.longest_seq_L>0, error_msg);
