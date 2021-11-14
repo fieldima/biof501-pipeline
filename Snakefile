@@ -1,6 +1,6 @@
 rule all:
     input:
-        "MSA/WNV_Genomes_aligned.FEL.json"
+        "MSA/WNV_Genomes_aligned.msa.FEL.json"
 
 rule preprocess:
     input:
