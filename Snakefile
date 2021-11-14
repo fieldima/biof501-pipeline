@@ -41,6 +41,6 @@ rule analysis:
         msa = "MSA/{genome}_aligned.msa",
         tree = "tree/{genome}_tree"
     output:
-        "MSA/{genome}_aligned.FEL.json"
+        "MSA/{genome}_aligned.msa.FEL.json"
     shell:
         "hyphy fel --alignment {input.msa} --tree {input.tree}"
