@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 1 of /home/fieldima/biof501-pipeline/Snakefile:
+Missing input files for rule all:
+MSA/WNV_Genomes_aligned.FEL.json

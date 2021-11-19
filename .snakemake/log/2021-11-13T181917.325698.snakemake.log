@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+analysis           1              1              1
+msa                1              1              1
+phylo              1              1              1
+postprocess        1              1              1
+preprocess         1              1              1
+total              6              1              1
+
+Select jobs to execute...
+
+[Sat Nov 13 18:19:17 2021]
+rule preprocess:
+    input: Viral_Sequence_Data/WNV_Genomes.fasta
+    output: MSA/WNV_Genomes.fasta_nuc.fas, MSA/WNV_Genomes.fasta_protein.fas
+    jobid: 4
+    wildcards: genome=WNV_Genomes
+    resources: tmpdir=/tmp
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 11 of /home/fieldima/biof501-pipeline/Snakefile:
+Job Missing files after 5 seconds:
+MSA/WNV_Genomes.fasta_nuc.fas
+MSA/WNV_Genomes.fasta_protein.fas
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Job id: 4 completed successfully, but some output files are missing. 4
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/fieldima/biof501-pipeline/.snakemake/log/2021-11-13T181917.325698.snakemake.log

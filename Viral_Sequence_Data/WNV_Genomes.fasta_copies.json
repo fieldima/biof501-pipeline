@@ -3991,5 +3991,8 @@
  "NC_009942_1_West_Nile_virus_lineage_1_complete_genome_USA_":{
    "0":"NC_009942_1_West_Nile_virus_lineage_1_complete_genome_USA_",
    "1":"DQ211652_1_West_Nile_virus_strain_NY99_complete_genome_USA_"
+  },
+ "join_NC_009942_1_97_7311_NC_009942_1_7311_7757_truncated_flavivirus_polyprotein_WARF4_West_Nile_virus_USA_":{
+   "0":"join_NC_009942_1_97_7311_NC_009942_1_7311_7757_truncated_flavivirus_polyprotein_WARF4_West_Nile_virus_USA_"
   }
 }
