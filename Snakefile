@@ -1,6 +1,6 @@
 rule all:
     input:
-        "hyphy_out/WNV_Genomes_aligned.msa.FEL.json"
+        "hyphy_out/WNV_Genomes_aligned.msa.FUBAR.json"
 
 rule concatenate:
     input:
