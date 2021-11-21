@@ -1,0 +1,50 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+analysis           1              1              1
+msa                1              1              1
+phylo              1              1              1
+postprocess        1              1              1
+total              5              1              1
+
+Select jobs to execute...
+
+[Sun Nov 21 00:41:02 2021]
+rule msa:
+    input: Viral_Sequence_Data/WNV_Genomes_fixed.fasta_protein.fas
+    output: MSA/WNV_Genomes_intermediate.msa
+    jobid: 3
+    wildcards: genome=WNV_Genomes
+    resources: tmpdir=/tmp
+
+[Sun Nov 21 00:41:53 2021]
+Finished job 3.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Sun Nov 21 00:41:53 2021]
+rule postprocess:
+    input: MSA/WNV_Genomes_intermediate.msa, Viral_Sequence_Data/WNV_Genomes_fixed.fasta_nuc.fas
+    output: MSA/WNV_Genomes_aligned.msa
+    jobid: 2
+    wildcards: genome=WNV_Genomes
+    resources: tmpdir=/tmp
+
+[Sun Nov 21 00:42:25 2021]
+Finished job 2.
+2 of 5 steps (40%) done
+Select jobs to execute...
+
+[Sun Nov 21 00:42:25 2021]
+rule phylo:
+    input: MSA/WNV_Genomes_aligned.msa
+    output: tree/WNV_Genomes_tree
+    jobid: 6
+    wildcards: genome=WNV_Genomes
+    resources: tmpdir=/tmp
+

@@ -15,14 +15,14 @@ rule preprocess:
     input:
         "Viral_Sequence_Data/{genome}_fixed.fasta"
     output:
-        "Viral_Sequence_Data/{genome}.fasta_nuc.fas",
-        "Viral_Sequence_Data/{genome}.fasta_protein.fas"
+        "Viral_Sequence_Data/{genome}_fixed.fasta_nuc.fas",
+        "Viral_Sequence_Data/{genome}._fixed.fasta_protein.fas"
     shell:
         "hyphy codon-msa/pre-msa.bf --input {input}"
         
 rule msa:
     input: 
-        "Viral_Sequence_Data/{genome}.fasta_protein.fas"
+        "Viral_Sequence_Data/{genome}_fixed.fasta_protein.fas"
     output:
         "MSA/{genome}_intermediate.msa"
     shell:
@@ -31,7 +31,7 @@ rule msa:
 rule postprocess:
     input:
         a = "MSA/{genome}_intermediate.msa",
-        b = "Viral_Sequence_Data/{genome}.fasta_nuc.fas"
+        b = "Viral_Sequence_Data/{genome}_fixed.fasta_nuc.fas"
     output: 
         "MSA/{genome}_aligned.msa"
     shell:
