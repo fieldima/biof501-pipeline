@@ -9,7 +9,7 @@ rule concatenate:
     output:
         "Viral_Sequence_Data/{genome}_fixed.fasta"
     shell:
-        cat {input.a} {input.b} > {output}
+        "cat {input.a} {input.b} > {output}"
 
 rule preprocess:
     input:
