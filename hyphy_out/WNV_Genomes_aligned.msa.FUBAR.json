@@ -1,0 +1,83 @@
+
+Analysis Description
+--------------------
+Perform a Fast Unbiased AppRoximate Bayesian (FUBAR) analysis of a
+coding sequence alignment to determine whether some sites have been
+subject to pervasive purifying or diversifying selection. v2.1
+introduces two more methods for estimating the posterior distribution of
+grid weights: collapsed Gibbs MCMC (faster) and 0-th order Variation
+Bayes approximation (fastest). Please note that a FUBAR analysis
+generates a cache and a results JSON file in the same directory as
+directory as the original alignment. HyPhy needs to have write
+privileges to this directory. For example if the original file is in
+/home/sergei/FUBAR/data/pol.nex then at the end of a FUBAR run, there
+will also exist FUBAR-generated files
+/home/sergei/FUBAR/data/pol.nex.FUBAR.json,
+/home/sergei/FUBAR/data/pol.nex.fubrar.cache. They also provide
+checkpointing so that a partially completed analysis can be restarted.
+
+- __Requirements__: in-frame codon alignment (possibly partitioned) and a phylogenetic tree
+(one per partition)
+
+- __Citation__: FUBAR: a fast, unconstrained bayesian approximation for inferring
+selection (2013), Mol Biol Evol. 30(5):1196-205
+
+- __Written by__: Sergei L Kosakovsky Pond
+
+- __Contact Information__: spond@temple.edu
+
+- __Analysis Version__: 2.2
+
+
+>code –> Universal
+
+>Loaded a multiple sequence alignment with **1283** sequences, **3433** codons, and **1** partitions from `/home/fieldima/biof501-pipeline/MSA/WNV_Genomes_aligned.msa`
+Save FUBAR cache to : 
+>cache –> /home/fieldima/biof501-pipeline/MSA/WNV_Genomes_aligned.msa.FUBAR.cache
+> FUBAR will write cache and result files to _/home/fieldima/biof501-pipeline/MSA/WNV_Genomes_aligned.msa.FUBAR.cache_ and _/home/fieldima/biof501-pipeline/MSA/WNV_Genomes_aligned.msa.FUBAR.json_, respectively 
+
+
+> Number of grid points per dimension (total number is D^2) (permissible range = [5,50], default value = 20, integer): 
+>grid –> 20
+
+>method –> Variational-Bayes
+> The concentration parameter of the Dirichlet prior (permissible range = [0.001,1], default value = 0.5): 
+>concentration_parameter –> 0.5
+
+>non-zero –> No
+
+
+### Obtaining branch lengths and nucleotide substitution biases under the nucleotide GTR model
+
+>kill-zero-lengths –> Yes
+
+### Deleted 505 zero-length internal branches: `Node1, Node10, Node1000, Node1008, Node1011, Node1014, Node1025, Node1026, Node1033, Node1036, Node104, Node1042, Node1043, Node1046, Node1047, Node105, Node1050, Node1058, Node1059, Node106, Node107, Node1074, Node1078, Node108, Node1080, Node1094, Node1099, Node1106, Node1108, Node1113, Node1124, Node1128, Node113, Node1142, Node1153, Node1157, Node1158, Node116, Node1161, Node117, Node1186, Node1191, Node1194, Node1195, Node1198, Node1202, Node1207, Node1218, Node1219, Node122, Node1220, Node1236, Node1247, Node1248, Node1249, Node1252, Node1253, Node1256, Node1257, Node126, Node1260, Node1261, Node1263, Node127, Node1276, Node1288, Node1297, Node13, Node130, Node1301, Node1304, Node1318, Node1332, Node1350, Node1354, Node1368, Node1375, Node1377, Node1387, Node1397, Node1401, Node1407, Node1409, Node1416, Node1419, Node142, Node1426, Node1429, Node1434, Node1435, Node1439, Node1442, Node1446, Node1447, Node1450, Node1451, Node1455, Node1458, Node146, Node1471, Node1477, Node1481, Node1482, Node1485, Node1493, Node1502, Node1504, Node1507, Node1510, Node1512, Node1513, Node1518, Node1536, Node1540, Node1541, Node1546, Node1549, Node155, Node1550, Node1551, Node156, Node1577, Node158, Node1585, Node1589, Node1594, Node1604, Node1607, Node1613, Node1614, Node1615, Node1619, Node1623, Node1630, Node1635, Node1636, Node1640, Node165, Node1651, Node1654, Node1655, Node1658, Node166, Node1660, Node1669, Node1671, Node1676, Node1679, Node1698, Node1705, Node1709, Node1723, Node1726, Node1729, Node1732, Node1733, Node1743, Node1752, Node1770, Node1782, Node1787, Node179, Node18, Node1822, Node1828, Node1831, Node1833, Node1834, Node1840, Node1843, Node1848, Node1851, Node1857, Node1867, Node187, Node1880, Node1881, Node1894, Node1895, Node1896, Node1903, Node1904, Node1927, Node1942, Node1947, Node1960, Node1961, Node1964, Node1965, Node1978, Node198, Node1982, Node1985, Node1986, Node2, Node2000, Node2001, Node2002, Node2003, Node2004, Node2012, Node2013, Node2016, Node2021, Node2022, Node2025, Node2031, Node2033, Node2037, Node204, Node2043, Node2048, Node2049, Node2067, Node207, Node2071, Node2074, Node2075, Node2076, Node2077, Node2078, Node2079, Node208, Node2087, Node2092, Node2093, Node2096, Node2098, Node2101, Node2104, Node2107, Node2108, Node211, Node2115, Node2117, Node2118, Node2119, Node2125, Node2130, Node2135, Node2137, Node2142, Node215, Node2151, Node2156, Node2159, Node2162, Node2165, Node2166, Node2167, Node2168, Node2178, Node2181, Node2187, Node2190, Node2196, Node2201, Node2202, Node2204, Node2211, Node2214, Node2226, Node2231, Node2235, Node2243, Node2249, Node2259, Node227, Node2271, Node2277, Node2289, Node2299, Node230, Node2307, Node2308, Node2309, Node231, Node2314, Node2319, Node232, Node2321, Node2324, Node2327, Node2328, Node2332, Node2341, Node2346, Node2347, Node2352, Node2354, Node2357, Node2362, Node2367, Node2370, Node2376, Node2379, Node238, Node2380, Node2383, Node2388, Node2390, Node2400, Node2407, Node2412, Node2422, Node2437, Node2444, Node2447, Node2451, Node2462, Node2465, Node2466, Node2467, Node2470, Node2474, Node2484, Node2487, Node2495, Node25, Node2505, Node2511, Node2514, Node2519, Node2531, Node2532, Node2535, Node2537, Node254, Node2541, Node2547, Node2548, Node2550, Node2557, Node256, Node2560, Node257, Node26, Node260, Node261, Node265, Node268, Node269, Node274, Node278, Node282, Node283, Node285, Node290, Node291, Node297, Node30, Node300, Node301, Node306, Node307, Node308, Node311, Node318, Node321, Node323, Node326, Node327, Node343, Node345, Node348, Node351, Node357, Node362, Node37, Node373, Node380, Node382, Node399, Node406, Node410, Node415, Node416, Node417, Node42, Node422, Node424, Node425, Node432, Node437, Node439, Node445, Node45, Node454, Node464, Node467, Node468, Node469, Node470, Node471, Node474, Node479, Node48, Node480, Node483, Node488, Node490, Node491, Node492, Node493, Node494, Node495, Node496, Node501, Node505, Node51, Node514, Node515, Node518, Node536, Node543, Node544, Node545, Node556, Node558, Node560, Node574, Node575, Node576, Node577, Node584, Node585, Node588, Node59, Node597, Node602, Node604, Node619, Node628, Node631, Node638, Node639, Node642, Node646, Node647, Node648, Node651, Node653, Node67, Node671, Node682, Node687, Node690, Node699, Node711, Node720, Node725, Node732, Node741, Node745, Node748, Node762, Node770, Node780, Node785, Node79, Node794, Node800, Node82, Node824, Node83, Node832, Node835, Node84, Node844, Node845, Node849, Node85, Node850, Node859, Node86, Node860, Node861, Node864, Node865, Node866, Node867, Node878, Node883, Node884, Node892, Node9, Node913, Node920, Node923, Node933, Node938, Node939, Node940, Node948, Node95, Node950, Node955, Node957, Node963, Node970, Node974, Node979, Node988, Node989, Node997`
+* Log(L) = -121626.64, AIC-c = 248396.28 (2571 estimated parameters)
+* 1 partition. Total tree length by partition (subs/site)  1.282
+* Tree length (expected substitutions/site) for partition 1 :    1.282
+
+### Computing the phylogenetic likelihood function on the grid 
+* Determining appropriate tree scaling based on the best score from a  20 x 20 rate grid
+* Best scaling achieved for 
+	* synonymous rate =  2.815
+	* non-synonymous rate =  0.214
+* Computing conditional site likelihoods on a 20 x 20 rate grid
+
+### Running an iterative zeroth order variational Bayes procedure to estimate the posterior mean of rate weights
+* Using the following settings
+	* Dirichlet alpha  : 0.5
+
+### Tabulating site-level results
+|     Codon      |   Partition    |     alpha      |      beta      |Posterior prob for positive selection|
+|:--------------:|:--------------:|:--------------:|:--------------:|:-----------------------------------:|
+|      1262      |       1        |        0.657   |        7.138   |       Pos. posterior = 0.9999       |
+|      2209      |       1        |        1.243   |        7.008   |       Pos. posterior = 0.9844       |
+|      2259      |       1        |        1.050   |        7.424   |       Pos. posterior = 0.9920       |
+|      2377      |       1        |        0.819   |       18.764   |       Pos. posterior = 1.0000       |
+|      2513      |       1        |        1.082   |       12.389   |       Pos. posterior = 0.9775       |
+|      2522      |       1        |        0.696   |        5.425   |       Pos. posterior = 0.9332       |
+|      2842      |       1        |        1.845   |       14.958   |       Pos. posterior = 0.9941       |
+----
+## FUBAR inferred 7 sites subject to diversifying positive selection at posterior probability >= 0.9
+Of these,  0.12 are expected to be false positives (95% confidence interval of 0-1 )
+
