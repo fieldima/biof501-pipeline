@@ -1,6 +1,6 @@
 rule all:
     input:
-        "hyphy_out/WNV_Genomes_aligned.msa.FUBAR.json"
+        "hyphy_out/FUBAR_summary"
 
 rule concatenate:
     input:
@@ -50,6 +50,6 @@ rule analysis:
         msa = "MSA/{genome}_aligned.msa",
         tree = "tree/{genome}_tree"
     output:
-        "hyphy_out/{genome}_aligned.msa.FUBAR.json"
+        "hyphy_out/FUBAR_summary"
     shell:
         "hyphy fubar --alignment {input.msa} --tree {input.tree} > {output}"
