@@ -2,9 +2,18 @@ rule all:
     input:
         "hyphy_out/WNV_Genomes_aligned.msa.FEL.json"
 
+rule concatenate:
+    input:
+        a = "Viral_Sequence_Data/Reference.fasta",
+        b = "Viral_Sequence_Data/{genome}.fasta"
+    output:
+        "Viral_Sequence_Data/{genome}_fixed.fasta"
+    shell:
+        cat {input.a} {input.b} > {output}
+
 rule preprocess:
     input:
-        "Viral_Sequence_Data/{genome}.fasta"
+        "Viral_Sequence_Data/{genome}_fixed.fasta"
     output:
         "MSA/{genome}.fasta_nuc.fas",
         "MSA/{genome}.fasta_protein.fas"
@@ -41,6 +50,6 @@ rule analysis:
         msa = "MSA/{genome}_aligned.msa",
         tree = "tree/{genome}_tree"
     output:
-        "hyphy_out/{genome}_aligned.msa.FEL.json"
+        "hyphy_out/{genome}_aligned.msa.FUBAR.json"
     shell:
-        "hyphy fel --alignment {input.msa} --tree {input.tree} > {output}"
+        "hyphy fubar --alignment {input.msa} --tree {input.tree} > {output}"
