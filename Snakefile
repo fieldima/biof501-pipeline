@@ -1,19 +1,19 @@
 rule all:
     input:
-        "MSA/WNV_Genomes_aligned.msa.FEL.json"
+        "hyphy_out/WNV_Genomes_aligned.msa.FEL.json"
 
 rule preprocess:
     input:
         "Viral_Sequence_Data/{genome}.fasta"
     output:
-        "Viral_Sequence_Data/{genome}.fasta_nuc.fas",
-        "Viral_Sequence_Data/{genome}.fasta_protein.fas"
+        "MSA/{genome}.fasta_nuc.fas",
+        "MSA/{genome}.fasta_protein.fas"
     shell:
-        "hyphy codon-msa/pre-msa.bf --input {input}"
+        "hyphy codon-msa/pre-msa.bf --input {input} > {output}"
         
 rule msa:
     input: 
-        "Viral_Sequence_Data/{genome}.fasta_protein.fas"
+        "MSA/{genome}.fasta_protein.fas"
     output:
         "MSA/{genome}_intermediate.msa"
     shell:
@@ -22,7 +22,7 @@ rule msa:
 rule postprocess:
     input:
         a = "MSA/{genome}_intermediate.msa",
-        b = "Viral_Sequence_Data/{genome}.fasta_nuc.fas"
+        b = "MSA/{genome}.fasta_nuc.fas"
     output: 
         "MSA/{genome}_aligned.msa"
     shell:
@@ -41,6 +41,6 @@ rule analysis:
         msa = "MSA/{genome}_aligned.msa",
         tree = "tree/{genome}_tree"
     output:
-        "MSA/{genome}_aligned.msa.FEL.json"
+        "hyphy_out/{genome}_aligned.msa.FEL.json"
     shell:
-        "hyphy fel --alignment {input.msa} --tree {input.tree}"
+        "hyphy fel --alignment {input.msa} --tree {input.tree} > {output}"
