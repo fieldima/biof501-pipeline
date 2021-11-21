@@ -18,7 +18,7 @@ rule preprocess:
         "MSA/{genome}.fasta_nuc.fas",
         "MSA/{genome}.fasta_protein.fas"
     shell:
-        "hyphy codon-msa/pre-msa.bf --input {input} > {output}"
+        "hyphy codon-msa/pre-msa.bf --input {input} --output {output}"
         
 rule msa:
     input: 
