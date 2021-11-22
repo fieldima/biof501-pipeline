@@ -1,6 +1,6 @@
 rule all:
     input:
-        "hyphy_out/WNV_Genomes_FUBAR"
+        "hyphy_out/WNV_Genomes_plot.png"
 
 rule concatenate:
     input:
@@ -53,3 +53,11 @@ rule analysis:
         "hyphy_out/{genome}_FUBAR"
     shell:
         "hyphy fubar --alignment {input.msa} --tree {input.tree} > {output}"
+
+rule plot:
+    input:
+        "hyphy_out/{genome}_FUBAR"
+    output:
+        "hyphy_out/{genome}_plot.png"
+    script:
+        "scripts/plot_fubar.R"
