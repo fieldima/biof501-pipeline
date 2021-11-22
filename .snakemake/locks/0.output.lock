@@ -1,0 +1,7 @@
+hyphy_out/WNV_Genomes_FUBAR
+Intermediates/WNV_Genomes_fixed_intermediate.msa
+Intermediates/WNV_Genomes_fixed.fasta
+tree/WNV_Genomes_fixed_tree
+MSA/WNV_Genomes_fixed_aligned.msa
+Intermediates/WNV_Genomes_fixed.fasta_nuc.fas
+Intermediates/WNV_Genomes_fixed.fasta_protein.fas
