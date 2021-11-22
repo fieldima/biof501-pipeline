@@ -1,7 +1,6 @@
 #Plotting the FUBAR data
 
 library(jsonlite)
-library(here)
 library(tidyverse)
 
 snake_data <- function (data_path, out_path) {

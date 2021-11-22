@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count    min threads    max threads
+-----  -------  -------------  -------------
+all          1              1              1
+plot         1              1              1
+total        2              1              1
+
+Select jobs to execute...
+
+[Sun Nov 21 23:16:03 2021]
+rule plot:
+    input: hyphy_out/WNV_Genomes_FUBAR
+    output: hyphy_out/WNV_Genomes_plot.png
+    jobid: 1
+    wildcards: genome=WNV_Genomes
+    resources: tmpdir=/tmp
+
+[Sun Nov 21 23:16:04 2021]
+Error in rule plot:
+    jobid: 1
+    output: hyphy_out/WNV_Genomes_plot.png
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/fieldima/biof501-pipeline/.snakemake/log/2021-11-21T231602.954522.snakemake.log

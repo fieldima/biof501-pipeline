@@ -50,13 +50,14 @@ rule analysis:
         msa = "MSA/{genome}_fixed_aligned.msa",
         tree = "tree/{genome}_fixed_tree"
     output:
-        "hyphy_out/{genome}_FUBAR"
+        a = "hyphy_out/{genome}_FUBAR",
+	b = "MSA/{genome}_fixed_aligned.msa.FUBAR.json"
     shell:
-        "hyphy fubar --alignment {input.msa} --tree {input.tree} > {output}"
+        "hyphy fubar --alignment {input.msa} --tree {input.tree} > {output.a}"
 
 rule plot:
     input:
-        "hyphy_out/{genome}_FUBAR"
+        "MSA/{genome}_fixed_aligned.msa.FUBAR.json"
     output:
         "hyphy_out/{genome}_plot.png"
     script:

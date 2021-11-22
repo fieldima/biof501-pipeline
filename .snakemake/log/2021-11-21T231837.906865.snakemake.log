@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 2
+Rules claiming more threads will be scaled down.
+Job stats:
+job      count    min threads    max threads
+-----  -------  -------------  -------------
+all          1              1              1
+plot         1              1              1
+total        2              1              1
+
+Select jobs to execute...
+
+[Sun Nov 21 23:18:38 2021]
+rule plot:
+    input: MSA/WNV_Genomes_fixed_aligned.msa.FUBAR.json
+    output: hyphy_out/WNV_Genomes_plot.png
+    jobid: 1
+    wildcards: genome=WNV_Genomes
+    resources: tmpdir=/tmp
+
+[Sun Nov 21 23:18:42 2021]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Sun Nov 21 23:18:42 2021]
+localrule all:
+    input: hyphy_out/WNV_Genomes_plot.png
+    jobid: 0
+    resources: tmpdir=/tmp
+
+[Sun Nov 21 23:18:42 2021]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /home/fieldima/biof501-pipeline/.snakemake/log/2021-11-21T231837.906865.snakemake.log
