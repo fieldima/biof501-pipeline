@@ -156,7 +156,7 @@ via `Hyphy` to determine which sites are being selected for amongst all included
 
 Two files are used as inputs; *WNV_Genomes.fasta* and *Reference.fasta*. These can be
 found in the Viral_Sequence_Data directory. *WNV_Genomes.fasta* includes all complete 
-WNV genomes sampled in North America that are listed on NCBI Virus. Reference.fasta
+WNV genomes sampled in North America that are listed on [NCBI Virus](https://www.ncbi.nlm.nih.gov/labs/virus/vssi/#/virus?SeqType_s=Nucleotide&VirusLineage_ss=taxid:11082). Reference.fasta
 is an in-frame coding sequence for the genome. 
 
 The Genomes file can be altered to include or exclude different genomes to change
