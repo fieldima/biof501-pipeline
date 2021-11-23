@@ -46,23 +46,36 @@
 West Nile Virus is a mosquito-borne ssRNA (single stranded RNA) virus capable of causing
 encephalitis, meningitis, comas, and even death. Subsequent recovery from encephalitis
 caused by WNV is reportedly slow; less than 40% of patients report full recovery one
-year post-treatment [1]. Following the first reported case of WNV in the Western 
+year post-treatment [[1](#references)]. Following the first reported case of WNV in the Western 
 Hemisphere in 1999, the virus has spread throughout much of the United States and is a
-growing concern in Canada [2]. While current WNV incidence is relatively low, the amount
-of cases in steadily growing [3]. With increasing temperatures due to global climate 
+growing concern in Canada [[2](#references)]. While current WNV incidence is relatively low, the amount
+of cases in steadily growing [[3](#references)]. With increasing temperatures due to global climate 
 change, specifically in Canada, the vector for this virus is spreading farther and
-farther north, increasing the risk of WNV spread and possible epidemic [4]. 
+farther north, increasing the risk of WNV spread and possible epidemic [[4](#references)]. 
+
+Positive selection analysis of viral genomes has been previously carried out on other viruses
+such as SARS-CoV-2 to identify viral adaptations and possible functional consequences of 
+selected mutations [[5](#references)]. Identification of the sites being selected for can help to characterize
+the changes the virus is undergoing as it further adapts to its new host: humans, and is a
+good starting point to identify mutations that may be involved in increased virality of this pathogen.
+
+This pipeline will employ the FUBAR algorithm [[6](#references)] to identify positively selected sites.
+This involves calculation and comparison of posterior probabilities of two rates: the rate
+of synonymous and non-synonymous mutations. Synonymous mutations comprise of mutations
+which do not affect the sequence of the coded protein, whereas non-synonymous mutations
+do. If the non-synonymous mutation rate (dN) is significantly greater than the synonymous
+mutation rate (dS), a site can be said to be experiencing positive (diversifying) selection. 
 
 ### Purpose
 
-This pipeline aims to identify if and what sites of West Nile Virus genomes are under
-positive selection.
+This pipeline aims to identify what sites of West Nile Virus genomes are undergoing
+positive selection. 
 
 ### Rationale
 
 By identifying sites of positive selection, we may be able to identify factors related
-to the spread of this virus. Positively-selected sites are candidates to analyze when
-looking for factors that may be related to virus transmission and survival. 
+to the adaption of this virus. Positively-selected sites are candidates to analyze when
+looking for factors that may be related to virus survival and possibly, spread. 
 
 -------------------------
 
@@ -188,7 +201,7 @@ selection are labeled with their codon position for clarity.
 
 Note: Example data are labeled as "Example" in their respective folders.
 
-### Results and conclusions
+### Results
 
 For West Nile Virus, 7 sites were found to be under positive selection. This is shown
 in the plot below. 
@@ -196,18 +209,21 @@ in the plot below.
 ![](hyphy_out/Example_plot.png "Selection plot")
 
 The sites were mostly between codon 2200 and 2500, which corresponds to proteins NS4A
-and NS4B on the West Nile Virus genome. 
+and NS4B on the [West Nile Virus genome](https://www.ncbi.nlm.nih.gov/nuccore/NC_009942). 
 
-As shown above, most sites were under stabilizing (negative), selection with some
-sites under neutral selection. 
+Another notable site was codon 1262, which corresponds to NS2A.
+
+As shown in the plot above, most sites were under purifying (negative), selection with
+some sites under neutral selection. 
 
 ### Future directions
 
-Possible future directions include a deeper analysis of proteins NS4A and NS4B to 
-identify possible reasons for selection. Some preliminary analysis could include GO
-term identification, functional annotation, etc. Another step of analysis would be
-to find which mutations are occurring on these proteins, to identify any functional
-consequences of selection. 
+The finding that positive selection does occur on proteins NS4A and NS4B warrants a 
+deeper analysis of the functional consequences of these mutations to identify possible
+reasons for selection. Some preliminary analysis could include GO term identification,
+functional domain annotation, etc. Another step of analysis would be to find which 
+mutations are occurring on these proteins, to identify possible structural changes
+occurring in these proteins. 
 
 The pipeline itself could also be used to identify selection among different variants.
 It would be interesting to see the results of this pipeline if I used a different data
@@ -230,3 +246,15 @@ incorporate gene reference data and coordinates.
 ----------------------
 
 ## References
+
+[1]  Campbell, G. L., Marfin, A. A., Lanciotti, R. S., & Gubler, D. J. (2002). West Nile virus. The Lancet Infectious Diseases, 2(9), 519-529. https://doi.org/10.1016/S1473-3099(02)00368-7
+
+[2]  Paz, S. (2015). Climate change impacts on West Nile virus transmission in a global context. Philosophical Transactions of the Royal Society B: Biological Sciences, 370(1665), 20130561. https://doi.org/10.1098/rstb.2013.0561
+
+[3] Wijayasri, S., Nelder, M., Russell, C., Johnson, K., Johnson, S., Badiani, T., & Sider, D. (2019). West Nile virus illness in Ontario, Canada: 2017. Canada Communicable Disease Report, 44(1), 32-37. https://doi.org/10.14745/ccdr.v45i01a04
+
+[4] Zheng, H., Drebot, M., & Coulthart, M. (2014). West Nile virus in Canada: ever-changing, but here to stay. Canada Communicable Disease Report, 40(10), 173-177. https://doi.org/10.14745/ccdr.v40i10a01
+
+[5]  Montoya, V., McLaughlin, A., Mordecai, G. J., Miller, R. L., & Joy, J. B. (2021). Variable routes to genomic and host adaptation among coronaviruses. Journal of Evolutionary Biology, 34(6), 924-936. https://doi.org/10.1111/jeb.13771
+
+[6] Murrell, B., Moola, S., Mabona, A., Weighill, T., Sheward, D., Kosakovsky Pond, S. L., & Scheffler, K. (2013). FUBAR: A Fast, Unconstrained Bayesian AppRoximation for Inferring Selection. Molecular Biology and Evolution, 30(5), 1196-1205. https://doi.org/10.1093/molbev/mst030
