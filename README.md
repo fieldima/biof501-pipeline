@@ -83,8 +83,8 @@ looking for factors that may be related to virus survival and possibly, spread.
 
 ### Installation
 
-Installing this pipeline requires conda and git. Instructions for installing these
-software can be found here and here respectively. 
+Installing this pipeline requires `conda` and `git`. Instructions for installing these
+software can be found [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) respectively. 
 
 First, clone the repository by running the following command in a terminal:
 
